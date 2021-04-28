@@ -10,7 +10,9 @@ requests, with a limited number of threads (usually 2). With a ZEO mode setup,
 the database can be used by multiple zeo clients at the same time, each one
 using it's own CPU. See `Scalability and ZEO`_ for further information.
 
-Create a new reserved user in SENAITE instance (under */senaite/acl_users*). The
+.. note:: This document assumes the creation of a site with to specify the site id "mysite"
+
+Create a new reserved user in SENAITE instance (under */mysite/acl_users/source_users*). The
 recommended username is *queue_consumer*.
 
 This user will be used by the consumer to pop tasks from the queue server in a
@@ -61,7 +63,7 @@ and configure two reserved clients:
     http-address = 127.0.0.1:8089
     zope-conf-additional =
         <clock-server>
-            method /senaite/queue_consume
+            method /mysite/queue_consume
             period 5
             user ${buildout:queue-user-name}
             password ${buildout:queue-user-password}
@@ -114,17 +116,14 @@ Once buildout finishes, start the clients:
 Then visit your SENAITE site and login with a user with "Site Administrator"
 privileges to activate the add-on:
 
-http://localhost:8080/senaite/prefs_install_products_form
+http://localhost:8080/mysite/prefs_install_products_form
 
 .. note:: It assumes you have a SENAITE zeo client listening to port 8080
 
 Once activated, go to `Site Setup > Queue Settings` and, in field "Queue Server",
 type the url of the zeo client that will act as the server of the queue.
 
-http://localhost:8090/senaite
-
-.. note:: Do not forget to specify the site id in the url (usually "senaite")
-
+http://localhost:8090/mysite
 
 .. Links
 
