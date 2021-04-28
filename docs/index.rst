@@ -2,10 +2,10 @@ senaite.queue
 =============
 
 This add-on enables asynchronous tasks for `SENAITE LIMS`_, that allows to
-better handle concurrent actions and processes when the workload is high. Is
+better handle concurrent actions and processes when the workload is high. It is
 specially indicated for high-demand instances and for when there are custom
 processes that take long to complete. Essentially, `senaite.queue`_ reduces the
-chance of transaction commits by handling tasks asynchronously, in an
+chance of transaction conflicts by handling tasks asynchronously, in an
 unattended and sequential manner.
 
 Once installed, this add-on enables asynchronous processing of those tasks that
