@@ -36,7 +36,7 @@ only do the registration in `configure.zcml`:
 
 
 This is a named adapter, and the name must be the action id with
-`workflow_action` prepended. When the workflow action `dispatch` is triggered,
+`workflow_action_` prepended. When the workflow action `dispatch` is triggered,
 the system looks for registered adapters and if a match is found, the adapter
 is called. Note that `for` field is neither context-specific nor layer specific,
 so this adapter will always be called when the action `dispatch` is triggered,
@@ -50,7 +50,7 @@ Alternatively, you can directly feed the queue programmatically:
     api.add_action_task(objects, action)
 
 
-Parameter objects can be either a brain, an object, a uid or a list/tuple of any
+The parameter `objects` can be either a brain, an object, a uid or a list/tuple of any
 of them.
 
 
@@ -59,8 +59,8 @@ Queued task for custom logic
 
 Imagine that instead of having a workflow action "dispatch" in place, you rather
 have a simple view from which the user can choose samples and generate a
-dispatch pdf from all them at once. Basically you want to feed the queue
-directly by your own:
+dispatch pdf for all them at once. Basically you want to feed the queue
+directly yourself:
 
 .. code-block:: python
 
